@@ -1,34 +1,33 @@
 <template>
- <div class="product">
- 
-  <router-link class="nav-link" to="/">Back to catalog</router-link>
-
-  <div class="wrapper">
-    <div class="img-product">
-      <img :src="this.$route.params.img" alt="">
-    </div>
-    <div class="info-product">
-      <div class="tittle"><h2>{{this.$route.params.tittle}}</h2></div>
-      <div class="category">Category: <span>{{this.$route.params.category}}</span></div>
-      <div class="description">{{this.$route.params.descr}}</div>
-      <div class="price-wrapper">
-       <div class="price">Цена: <br> <span>{{this.$route.params.price}} UAH</span></div>
-        <button class="Buy">Buy</button>
+  <div class="product">
+    <router-link class="nav-link" to="/">Back to catalog</router-link>
+    <div class="wrapper">
+      <div class="img-product">
+        <img :src="this.$route.params.img" alt="">
+      </div>
+      <div class="info-product">
+        <div class="tittle"><h2>{{this.$route.params.tittle}}</h2></div>
+        <div class="category">Category: <span>{{this.$route.params.category}}</span></div>
+        <div class="description">{{this.$route.params.descr}}</div>
+        <div class="price-wrapper">
+          <div class="price">Цена: <br> <span>{{this.$route.params.price}} UAH</span></div>
+          <button class="Buy">Buy</button>
+        </div>
       </div>
     </div>
   </div>
-
- </div>
 </template>
 <script>
 
 export default {
   name:'product',
   data(){
-   return{
-    proId:this.$route.params.Pid,
-    title:"product"
-     }}}
+    return{
+      proId:this.$route.params.Pid,
+      title:"product"
+      }
+    }
+  }
 </script>
 <style scoped>
 .img-product{
@@ -44,12 +43,11 @@ export default {
 .wrapper{
   padding: 35px 0px 50px 25px;
   width: 1091px;
-height: 407px;
+  height: 407px;
   display: flex;
   background: #FFFFFF;
-/* Default shadow(high) */
-box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.12);
-border-radius: 4px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
 }
 .product{
   font-family: Roboto;
@@ -63,8 +61,7 @@ border-radius: 4px;
   
 }
 .tittle h2{
-  
-color: #2D2E2E;
+  color: #2D2E2E;
   font-size: 28px;
   font-weight: bold;
   margin-bottom: 30px;
@@ -86,9 +83,9 @@ color: #2D2E2E;
 }
 .price span{
   font-weight: 500;
-line-height: normal;
-font-size: 44.1667px;
-color: #F2994A
+  line-height: normal;
+  font-size: 44.1667px;
+  color: #F2994A
 }
 .Buy{
   border: 0;

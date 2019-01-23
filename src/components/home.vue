@@ -1,12 +1,13 @@
 
 <template>
     <div class="home">
-     <div id="product" >
+      <div id="product" >
         <div  class="item-catalog">
-           <h2>Items catalog</h2>
-           <div class="searchItem">
-             <div class="select">
-               <span>Category</span>
+            <h2>Items catalog</h2>
+            <!-- Search and category select -->
+            <div class="searchItem">
+              <div class="select">
+                <span>Category</span>
                 <select  v-model="category">
                   <option></option>
                   <option>Зимние шины</option>
@@ -14,22 +15,21 @@
                   <option>Всесезонные шины</option>
                 </select>
               </div>
-             <div class="search">
-               <input type="text" v-model="search"  placeholder="Search">
+              <div class="search">
+                <input type="text" v-model="search"  placeholder="Search">
               </div>
-              
-           </div>
-         
-                       
+            </div> 
+            <!-- Product list -->
             <div class="list">
-               <div class="category" style="padding: 25px 0;">
-                 <span style="width: 165px;padding-left: 25px;} ">Image </span>
-                 <span style="width: 600px;">Name</span> 
-                 <span style="width: 140px">Category</span>
-                 <span style="    width: 100px;text-align: center;">Price</span>
-               </div>
-               <div class="product"  v-for="(prod,key) in todosByTitle" :key="key">
-                 <div class="img-product"><img :src="prod.img" ></div>
+              <div class="category" style="padding: 25px 0;">
+                <span style="width: 165px;padding-left: 25px;} ">Image </span>
+                <span style="width: 600px;">Name</span> 
+                <span style="width: 140px">Category</span>
+                <span style="    width: 100px;text-align: center;">Price</span>
+              </div>
+              <!-- Product list table with products -->
+              <div class="product"  v-for="(prod,key) in todosByTitle" :key="key">
+                <div class="img-product"><img :src="prod.img" ></div>
                   <div>
                     <div @click="goTodetail(prod.id,prod.description,prod.title,prod.category,prod.price,prod.img)" class="title-product">{{prod.title}}</div>
                     <div class="description-product">{{prod.description}}</div>
@@ -77,19 +77,19 @@ export default {
   },
    methods:{
      deleteProduct(id){
-       this.$store.dispatch('GET_REMOVE_ID',id)
-     },
+      this.$store.dispatch('GET_REMOVE_ID',id)
+      },
     goTodetail(prodId,description,tit,category,price,img) {
       this.$router.push({name:'product',
-      params:{Pid:prodId,
-              tittle:tit,
-              descr:description,
-              category:category,
-              price:price,
-              img:img
-              }})
-    
-  }}
+        params:{Pid:prodId,
+                tittle:tit,
+                descr:description,
+                category:category,
+                price:price,
+                img:img
+                }})
+      }
+    }
 }
 </script>
 
